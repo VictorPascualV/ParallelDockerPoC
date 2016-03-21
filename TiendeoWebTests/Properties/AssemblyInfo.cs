@@ -36,4 +36,4 @@ using NUnit.Framework;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 //NUnit
-//[assembly: LevelOfParallelism(2)]
+//[assembly: LevelOfParallelism(1)]
