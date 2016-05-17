@@ -11,9 +11,9 @@ namespace TiendeoWebTests
     {
         private readonly string _workingDirectory = TestContext.CurrentContext.TestDirectory;
         private static string _batchRawOutput;
-        private static int HubPort => int.Parse(_batchRawOutput.Split(new[] { "0.0.0.0:" }, StringSplitOptions.None)[1].Split('\r')[0]);
+        private static string HubHost => _batchRawOutput.Split(new[] { "/tcp -> " }, StringSplitOptions.None)[1].Split('\n')[0];
 
-        public static Uri SeleniumHubUrl => new Uri($"http://192.168.99.100:{HubPort}/wd/hub");
+        public static Uri SeleniumHubUrl => new Uri($"http://{HubHost}/wd/hub");
 
         [OneTimeSetUp]
         public void StartGrid()
